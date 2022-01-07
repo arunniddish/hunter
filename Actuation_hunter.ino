@@ -29,8 +29,7 @@ void setup()
 
 char a; // stores incoming character from other device
 char b; // stores incoming character from other device
-char c; // stores incoming character from other device
-char d; // stores incoming character from other device
+unsigned int dt = 1000; // stores the time delay
 
 void loop()
 {
@@ -42,9 +41,7 @@ void loop()
     b = (Serial.read()); 
     if(a=='1' || b == '1')
     {
-      limb1();
-      digitalWrite(3,HIGH);
-      digitalWrite(4,LOW);    
+      limb1();    
     }
     if(a=='2' || b == '2')
     {
@@ -65,35 +62,47 @@ void limb1()
 {
       digitalWrite(3,HIGH);
       digitalWrite(4,LOW);
-      delay(1000);
+      delay(dt);
       digitalWrite(3,LOW);
       digitalWrite(4,HIGH); 
+      delay(dt);
+      digitalWrite(3,LOW);
+      digitalWrite(4,LOW);
 }
 
 void limb2()
 {
       digitalWrite(5,HIGH);
       digitalWrite(6,LOW);
-      delay(1000);
+      delay(dt);
       digitalWrite(5,LOW);
-      digitalWrite(6,HIGH); 
+      digitalWrite(6,HIGH);
+      delay(dt); 
+      digitalWrite(5,LOW);
+      digitalWrite(6,LOW);
 }
 
 void limb3()
 {
       digitalWrite(7,HIGH);
       digitalWrite(8,LOW);
-      delay(1000);
+      delay(dt);
       digitalWrite(7,LOW);
-      digitalWrite(8,HIGH); 
+      digitalWrite(8,HIGH);
+      delay(dt);
+      digitalWrite(7,LOW);
+      digitalWrite(8,LOW); 
 }
 
 void limb4()
 {
       digitalWrite(9,HIGH);
       digitalWrite(10,LOW);
-      delay(1000);
+      delay(dt);
       digitalWrite(9,LOW);
-      digitalWrite(10,HIGH); 
+      digitalWrite(10,HIGH);
+      delay(dt);
+      digitalWrite(9,LOW);
+      digitalWrite(10,LOW); 
 }
 
